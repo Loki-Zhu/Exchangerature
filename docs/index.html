@@ -24,27 +24,30 @@
 		"name": ""
 }</script>
      <script>
-fetch('result.csv')
-  .then(response => response.text())
-  .then(csv => {
-    const lines = csv.trim().split('\n');
-    if (lines.length < 2) {
-      document.getElementById('result').innerText = '⚠️ 无法加载预测结果。';
-      return;
-    }
+    fetch('result.csv')
+      .then(response => response.text())
+      .then(csv => {
+        const lines = csv.trim().split('\n');
+        if (lines.length < 2) {
+          document.getElementById('result').innerText = '⚠️ Cannot be loaded';
+          return;
+        }
+        const lastLine = lines[lines.length - 1];
+        const [date, rate] = lastLine.split(',');
+        const html = `
+  <div style="writing-mode: horizontal-tb; text-align: center; font-size: 24px; line-height: 1.6;">
+    <p><strong>Predicted Date:</strong> ${date}</p>
+    <p><strong>Predicted Exchange Rate:</strong> ${parseFloat(rate).toFixed(4)}</p>
+  </div>
+`;
 
-    const lastLine = lines[lines.length - 1]; // 取最后一行
-    const [date, rate] = lastLine.split(',');
 
-    document.getElementById('result').innerHTML = `
-      <p><strong>预测日期：</strong>${date}</p>
-      <p><strong>预测汇率：</strong>${rate}</p>
-    `;
-  })
-  .catch(error => {
-    document.getElementById('result').innerText = '❌ 无法加载结果';
-    console.error(error);
-  });
+       document.getElementById('result').innerHTML = html;
+      })
+      .catch(error => {
+        console.error('loading failed：', error);
+        document.getElementById('result').innerText = '❌ Cannot be loaded';
+      });
   </script>
 
 
