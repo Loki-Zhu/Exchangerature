@@ -23,6 +23,47 @@
 		"@type": "Organization",
 		"name": ""
 }</script>
+    <script>
+    fetch('result.csv')
+      .then(response => response.text())
+      .then(csv => {
+        const lines = csv.trim().split('\n');
+        if (lines.length < 2) {
+          document.getElementById('result').innerText = '⚠️ Cannot be loaded';
+          return;
+        }
+        const lastLine = lines[lines.length - 1];
+        const [date, rate] = lastLine.split(',');
+        const html = `
+  <div style="text-align: center; font-size: 20px; line-height: 1.8;">
+  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+    <strong>Predicted Date:&nbsp;</strong>
+    <span>${date}</span>
+  </p>
+
+  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+    <strong>Predicted Average Exchange Rate:&nbsp;</strong>
+    <span>${parseFloat(rate).toFixed(4)}</span>
+  </p>
+</div>
+`;
+
+
+
+
+
+       document.getElementById('result').innerHTML = html;
+      })
+      .catch(error => {
+        console.error('loading failed：', error);
+        document.getElementById('result').innerHTML = `
+  <div style="text-align: center; font-size: 20px; word-break: break-word;">
+    ❌ Cannot be loaded
+  </div>
+`;
+
+      });
+  </script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="CN">
     <meta property="og:type" content="website">
@@ -91,7 +132,7 @@
             <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
               <div class="u-container-layout u-container-layout-1">
                 <h3 class="u-align-center u-text u-text-default u-text-1">预测 </h3>
-                <p class="u-align-center u-text u-text-2">1 </p>
+                <p id="result" class="u-align-center u-text u-text-2">Loading...</p>
                 <p class="u-align-center u-text u-text-3">(此预测仅供参考，不构成专业投资建议！) </p>
               </div>
             </div>
