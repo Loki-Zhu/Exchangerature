@@ -165,3 +165,9 @@ print(f"Predicted next exchange rate: {y_pred[0][0]:.4f}")
 
 # 生成未来工作日（不包括周六、周日）
 #future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=len(future_preds))
+pred_date = df_all['Date'].iloc[-1] + timedelta(days=1)
+output = pd.DataFrame({
+    'date': pred_date,
+    'predicted_rate': [round(y_pred[0][0], 4)]
+})
+output.to_csv('docs/result.csv', index=False)
