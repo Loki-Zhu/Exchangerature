@@ -24,52 +24,55 @@
 		"name": ""
 }</script>
     <script>
-    fetch('result.csv')
-      .then(response => response.text())
-      .then(csv => {
-        const lines = csv.trim().split('\n');
-        if (lines.length < 2) {
-          document.getElementById('result').innerText = '⚠️ Cannot be loaded';
-          return;
-        }
-        const lastLine = lines[lines.length - 1];
-        const [date, rate, trend] = lastLine.split(',');
-        const html = `
+  fetch('result.csv')
+    .then(response => response.text())
+    .then(csv => {
+      const lines = csv.trim().split('\n');
+
+      if (lines.length < 2) {
+        document.getElementById('result').innerText = '⚠️ Cannot be loaded';
+        return;
+      }
+
+      // ✅ 跳过表头，确保拿到数据行
+      const lastLine = lines[lines.length - 1];
+      const [date, rate, trendRaw] = lastLine.split(',');
+
+      // ✅ 统一方向显示格式
+      const trend = trendRaw.trim();
+      const trendDisplay = trend === "Up" ? "⬆️ Up" : (trend === "Down" ? "⬇️ Down" : trend);
+
+      const html = `
   <div style="text-align: center; font-size: 20px; line-height: 1.8;">
-  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
-    <strong>Predicted Date:&nbsp;</strong>
-    <span>${date}</span>
-  </p>
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Predicted Date:&nbsp;</strong>
+      <span>${date}</span>
+    </p>
 
-  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
-    <strong>Predicted Average Exchange Rate:&nbsp;</strong>
-    <span>${parseFloat(rate).toFixed(4)}</span>
-  </p>
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Predicted Average Exchange Rate:&nbsp;</strong>
+      <span>${parseFloat(rate).toFixed(4)}</span>
+    </p>
 
-  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
-  <strong>Future Short Run Trend:&nbsp;</strong>
-  <span>${trend}</span>
-  </p>
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Future Short Run Trend:&nbsp;</strong>
+      <span>${trendDisplay}</span>
+    </p>
+  </div>
+      `;
 
-</div>
-`;
-
-
-
-
-
-       document.getElementById('result').innerHTML = html;
-      })
-      .catch(error => {
-        console.error('loading failed：', error);
-        document.getElementById('result').innerHTML = `
+      document.getElementById('result').innerHTML = html;
+    })
+    .catch(error => {
+      console.error('loading failed：', error);
+      document.getElementById('result').innerHTML = `
   <div style="text-align: center; font-size: 20px; word-break: break-word;">
     ❌ Cannot be loaded
   </div>
-`;
+      `;
+    });
+</script>
 
-      });
-  </script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="EN">
     <meta property="og:type" content="website">
