@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 date,predicted_rate,trend_sign
 2025-06-11,9.6918,Down
+=======
+date,predicted_rate
+2025-06-11,9.6825
+>>>>>>> 02af47489af50a0c8dac85d5c70a5cf868285d23

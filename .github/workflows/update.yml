@@ -1,0 +1,49 @@
+name: update
+
+on:
+  schedule:
+    - cron: '30 2 * * *'  # 每天英国时间 2:30 运行
+  workflow_dispatch:       # 支持手动触发
+
+permissions:
+  contents: write          # ✅ 关键！允许 push 权限
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install scikit-learn matplotlib pandas numpy requests yfinance scipy torch tensorflow seaborn 
+
+    - name: Run prediction
+      run: python predict.py
+
+    - name: Commit and push
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        git add docs/result.csv
+
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Auto-update prediction data"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push origin HEAD:${{ github.ref_name }}
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
