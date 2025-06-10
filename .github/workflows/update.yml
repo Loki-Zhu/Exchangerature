@@ -2,7 +2,7 @@ name: update
 
 on:
   schedule:
-    - cron: '30 2 * * *'  # 每天英国时间早上2点运行（可改）
+    - cron: '30 2 * * *'  # 每天英国时间早上2点30运行（可改）
   workflow_dispatch:     # 手动触发
 
 jobs:
@@ -28,16 +28,15 @@ jobs:
 
     - name: Commit and push
       run: |
-        # 设置Git身份
-        git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "actions@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         
-        # 提交逻辑
         git add docs/result.csv
         if git diff --cached --quiet; then
           echo "No changes to commit"
         else
           git commit -m "🤖 Auto-update prediction data"
-          git push
-        fi
+          git push origin HEAD:${{ github.ref_name }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
