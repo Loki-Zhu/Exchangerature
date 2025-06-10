@@ -36,7 +36,7 @@
 
       // ✅ 跳过表头，确保拿到数据行
       const lastLine = lines[lines.length - 1];
-      const [date, rate, trendRaw] = lastLine.split(',');
+      const [date, rate, trendRaw, trendcn] = lastLine.split(',');
 
       // ✅ 统一方向显示格式
       const trend = trendRaw.trim();
