@@ -37,6 +37,7 @@ jobs:
         else
           git commit -m "🤖 Auto-update prediction data"
           git push origin HEAD:${{ github.ref_name }}
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
