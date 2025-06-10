@@ -28,6 +28,11 @@ jobs:
 
     - name: Commit and push
       run: |
+        # 设置Git身份
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@users.noreply.github.com"
+        
+        # 提交逻辑
         git add docs/result.csv
         if git diff --cached --quiet; then
           echo "No changes to commit"
@@ -35,3 +40,4 @@ jobs:
           git commit -m "🤖 Auto-update prediction data"
           git push
         fi
+    
