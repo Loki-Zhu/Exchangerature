@@ -33,7 +33,7 @@
           return;
         }
         const lastLine = lines[lines.length - 1];
-        const [date, rate] = lastLine.split(',');
+        const [date, rate, trend] = lastLine.split(',');
         const html = `
   <div style="text-align: center; font-size: 20px; line-height: 1.8;">
   <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
@@ -45,6 +45,12 @@
     <strong>Predicted Average Exchange Rate:&nbsp;</strong>
     <span>${parseFloat(rate).toFixed(4)}</span>
   </p>
+
+  <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+  <strong>Future Short Run Trend:&nbsp;</strong>
+  <span>${trend}</span>
+  </p>
+
 </div>
 `;
 

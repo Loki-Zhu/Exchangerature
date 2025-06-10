@@ -170,4 +170,20 @@ output = pd.DataFrame({
     'date': pred_date,
     'predicted_rate': [round(y_pred[0][0], 4)]
 })
+
+before_value = df_all['ER'].iloc[-1]
+diff = y_pred[0][0] - before_value
+if diff < 0:
+    trend_sign = 'Down'
+elif diff > 0:
+    trend_sign = 'Up'
+else:
+    trend_sign = 'Hold'
+pred_date = df_all['Date'].iloc[-1] + timedelta(days=1)
+output = pd.DataFrame({
+    'date': pred_date,
+    'predicted_rate': [round(y_pred[0][0], 4)],
+    'trend_sign': trend_sign
+})
+
 output.to_csv('docs/result.csv', index=False)

@@ -1,2 +1,2 @@
-date,predicted_rate
-2025-06-06,9.7237
+date,predicted_rate,trend_sign
+2025-06-11,9.6918,Down
