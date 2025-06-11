@@ -16,6 +16,7 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 import matplotlib.pyplot as plt
+from bs4 import BeautifulSoup
 
 import random
 import os
@@ -174,13 +175,13 @@ output = pd.DataFrame({
 before_value = df_all['ER'].iloc[-1]
 diff = y_pred[0][0] - before_value
 if diff < 0:
-    trend_sign = 'Down',
-    trend_cn = '下跌'
+    trend_sign = '⬇️ Down'
+    trend_cn = '⬇️ 下跌'
 elif diff > 0:
-    trend_sign = 'Up',
-    trend_cn = '上涨'
+    trend_sign = '⬆️ Up'
+    trend_cn = '⬆️ 上涨'
 else:
-    trend_sign = 'Hold',
+    trend_sign = 'Hold'
     trend_cn = '持平'
 pred_date = df_all['Date'].iloc[-1] + timedelta(days=1)
 output = pd.DataFrame({
@@ -190,4 +191,29 @@ output = pd.DataFrame({
     'trend_cn': trend_cn
 })
 
-output.to_csv('docs/result.csv', index=False)
+# output.to_csv('docs/result.csv', index=False)
+
+# 读取 HTML 模板
+with open("docs/CN.html", encoding="utf-8") as f:
+    soup = BeautifulSoup(f.read(), "html.parser")
+
+# 替换 ID 对应内容
+soup.find(id="predicted-date").string = pred_date.strftime("%Y-%m-%d")
+soup.find(id="predicted-rate").string = f"{y_pred[0][0]:.4f}"
+soup.find(id="predicted-trend").string = trend_cn
+
+# 写回 HTML
+with open("docs/CN.html", "w", encoding="utf-8") as f:
+    f.write(str(soup))
+
+with open("docs/index.html", encoding="utf-8") as f:
+    soup = BeautifulSoup(f.read(), "html.parser")
+
+# 替换 ID 对应内容
+soup.find(id="predicted-date").string = pred_date.strftime("%Y-%m-%d")
+soup.find(id="predicted-rate").string = f"{y_pred[0][0]:.4f}"
+soup.find(id="predicted-trend").string = trend_sign
+
+# 写回 HTML
+with open("docs/index.html", "w", encoding="utf-8") as f:
+    f.write(str(soup))

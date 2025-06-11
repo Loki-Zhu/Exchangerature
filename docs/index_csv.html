@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="portpholio, mission and vision, awards, Our work, Contact Us">
+    <meta name="description" content="">
+    <title>EN</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="index.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 7.9.4, nicepage.com">
+    
+    
+    
+    
+    
+    
+    
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <script>
+  fetch('result.csv')
+    .then(response => response.text())
+    .then(csv => {
+      const lines = csv.trim().split('\n');
+
+      if (lines.length < 2) {
+        document.getElementById('result').innerText = '⚠️ Cannot be loaded';
+        return;
+      }
+
+      // ✅ 跳过表头，确保拿到数据行
+      const lastLine = lines[lines.length - 1];
+      const [date, rate, trendRaw, trendcn] = lastLine.split(',');
+
+      // ✅ 统一方向显示格式
+      const trend = trendRaw.trim();
+      const trendDisplay = trend === "Up" ? "⬆️ Up" : (trend === "Down" ? "⬇️ Down" : trend);
+
+      const html = `
+  <div style="text-align: center; font-size: 20px; line-height: 1.8;">
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Predicted Date:&nbsp;</strong>
+      <span>${date}</span>
+    </p>
+
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Predicted Average Exchange Rate:&nbsp;</strong>
+      <span>${parseFloat(rate).toFixed(4)}</span>
+    </p>
+
+    <p style="margin: 0; padding: 0; display: flex; justify-content: center; white-space: nowrap;">
+      <strong>Future Short Run Trend:&nbsp;</strong>
+      <span>${trendDisplay}</span>
+    </p>
+  </div>
+      `;
+
+      document.getElementById('result').innerHTML = html;
+    })
+    .catch(error => {
+      console.error('loading failed：', error);
+      document.getElementById('result').innerHTML = `
+  <div style="text-align: center; font-size: 20px; word-break: break-word;">
+    ❌ Cannot be loaded
+  </div>
+      `;
+    });
+</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="EN">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="index.html" data-home-page-title="EN" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="header"><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-sm u-sheet-1">
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" role="navigation" data-responsive-from="MD">
+          <div class="menu-collapse" style="font-size: 1.125rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-hamburger-link u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" tabindex="-1" aria-label="Open menu" aria-controls="c024">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul role="menubar" class="u-nav u-unstyled u-nav-1"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./#sec-f9fe" data-page-id="2231004045" aria-haspopup="true" style="padding: 14px 25px;">About</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./#sec-e40f" data-page-id="2231004045" style="padding: 14px 25px;">Prediction</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./#block-2" data-page-id="2231004045" style="padding: 14px 25px;">Explanation</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./#block-1" data-page-id="2231004045" style="padding: 14px 25px;">Performance</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse" id="c024" role="region" aria-label="Menu panel">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close" tabindex="-1" aria-label="Close menu"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2" role="menubar"><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="./#sec-f9fe" data-page-id="2231004045" aria-haspopup="true">About</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="./#sec-e40f" data-page-id="2231004045">Prediction</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="./#block-2" data-page-id="2231004045">Explanation</a>
+</li><li role="none" class="u-nav-item"><a tabindex="-1" role="menuitem" class="u-button-style u-nav-link" href="./#block-1" data-page-id="2231004045">Performance</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+          <style class="menu-style">@media (max-width: 939px) {
+                    [data-responsive-from="MD"] .u-nav-container {
+                        display: none;
+                    }
+                    [data-responsive-from="MD"] .menu-collapse {
+                        display: block;
+                    }
+                }</style>
+        </nav>
+        <p class="u-text u-text-1">/</p>
+        <a href="CN_csv.html" data-page-id="60575741" class="u-border-none u-btn u-button-style u-none u-text-hover-palette-2-base u-btn-1" title="CN">CN </a>
+        <a href="./" data-page-id="2231004045" class="u-border-none u-btn u-button-style u-none u-text-hover-palette-2-base u-btn-2" title="CN">EN </a>
+      </div></header>
+    <section class="u-clearfix u-valign-middle-lg u-valign-middle-sm u-section-1" id="sec-f49f">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000" data-animation-delay="0">exchangerature </h2>
+        <h5 class="u-align-center u-text u-text-default u-text-2"> Free exc​hange predictor</h5>
+        <p class="u-align-right u-text u-text-3">Developed by Loki Zhu (LSE)&nbsp;</p>
+      </div>
+    </section>
+    <section class="skrollable u-clearfix u-container-align-center u-image u-parallax u-section-2" id="sec-1631" data-image-width="830" data-image-height="388">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-f9fe">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">About </h3>
+        <p class="u-align-left u-text u-text-2">Exchangerature is a tool that focuses on short-term exchange rate prediction. The prediction target is the daily&nbsp;average price. The purpose is not to provide speculative suggestions, but to provide convenience for people abroad. The model currently focuses on the CNY/GBP rate only.&nbsp;<br><span style="font-size: 0.75rem;"></span>
+          <br> The project was independently developed by a student of Economics at the London School of Economics (LSE). All predictions are generated using daily-updated machine learning models trained on the past 10 years of data.<br>
+          <br>
+          <br>Whether you're managing international payments, planning travel, or simply tracking currency movements, I hope this tool brings you clarity—and perhaps a small sense of control—in a fluctuating world.<br><span style="font-style: italic;">
+            <br>* CNY is treated as the domestic currency in all context in the project</span>
+          <br><span style="font-style: italic;">* The website updates automatically every day at 2:00 AM (UTC+0).</span>
+        </p>
+        <a href="./#block-2" data-page-id="2231004045" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-btn u-button-style u-none u-text-palette-1-base u-btn-1"> (Click here to view model explanations)&nbsp;</a>
+      </div>
+    </section>
+    <section class="u-clearfix u-valign-top-lg u-valign-top-md u-valign-top-sm u-section-4" id="sec-e40f">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <h3 class="u-align-center u-text u-text-default u-text-1">Prediction </h3>
+                <p id="result" class="u-align-center u-text u-text-2">Loading...</p>
+                <p class="u-align-center u-text u-text-3">(This forecast does not constitute professional investment advice ! ) </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-border-2 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+    </section>
+    <section class="u-clearfix u-section-5" id="block-2">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-sm u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">Model Explanations </h3>
+        <p class="u-text u-text-2"> This exchange rate forecasting system is powered by a Long Short-Term Memory (LSTM) neural network, which is a type of deep learning model specifically designed to learn from sequential time-series data. The model is trained using historical daily CNY/GBP exchange rate data and Macro indicators. The model focuses on daily average price predictions, which indicates general short-term trends.&nbsp;<br>
+          <br>The model adopts a two-layer neural architecture which shows the best performance during tests. This design enhances the model’s ability to recognize complex short-term dynamics while maintaining generalization.<br>
+          <br>Each day, the model analyzes the 12-day movements in the average exchange rate and predicts the average value for the next trading day.&nbsp;<br>
+          <br>All data are collected from a reliable public sources  yfinance , ensuring transparency and reproducibility.
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="block-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">Model Performances </h3>
+        <p class="u-align-left u-text u-text-2">The model is tested with the previous 1 year's data. The graph shows the model's performance in the test set. In terms of overall performance, the model achieves:&nbsp;<br>
+        </p>
+        <img class="u-expanded-width-xs u-image u-image-default u-image-1" src="images/image.png" alt="" data-image-width="1538" data-image-height="952">
+        <p class="u-align-left u-text u-text-3"> 96.69% trend accuracy<br>95.08% where the error is smaller than 0.05
+        </p>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="footer"><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Email: L.Zhu27@lse.ac.uk</p>
+        <a href="https://www.xiaohongshu.com/user/profile/64073a55000000000b016f7e?xsec_token=YBBlkGJEQV8xnB1eVrqhjzlfhun4Am55sOPe9O6qxyav0=&amp;xsec_source=app_share&amp;xhsshare=WeixinSession&amp;appuid=64073a55000000000b016f7e&amp;apptime=1749117080&amp;share_id=80cb76224e434efbb31529cf3b791f31" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-btn-1">小红书</a>
+        <a href="https://www.linkedin.com/in/lyugezhu/" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-btn-2">Linkedin</a>
+        <a href="" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-btn-3">Instagram </a>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80"> This <a href="https://nicepage.com/css-templates">CSS Template</a> was created with Nicepage Website Builder 
+    </section>
+  
+</body></html>
