@@ -217,3 +217,15 @@ soup.find(id="predicted-trend").string = trend_sign
 # 写回 HTML
 with open("docs/index.html", "w", encoding="utf-8") as f:
     f.write(str(soup))
+
+with open("docs/prediction.html", encoding="utf-8") as f:
+    soup = BeautifulSoup(f.read(), "html.parser")
+
+# 替换 ID 对应内容
+soup.find(id="predicted-date").string = pred_date.strftime("%Y-%m-%d")
+soup.find(id="predicted-rate").string = f"{y_pred[0][0]:.4f}"
+soup.find(id="predicted-trend").string = trend_sign
+
+# 写回 HTML
+with open("docs/prediction.html", "w", encoding="utf-8") as f:
+    f.write(str(soup))
