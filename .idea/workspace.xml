@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dda6527-604a-4080-91fc-cf82468ee0a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ER_Model/docs/CN.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/LSTM_trend.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/LSTM_trend.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/CN.css" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/CN.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/CN.html" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/CN_csv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/images/image.png" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/images/image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/images/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/images/image1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/index_csv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/intlTelInput/intlTelInput.css" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/intlTelInput/intlTelInput.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/intlTelInput/intlTelInput.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/intlTelInput/intlTelInput.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/intlTelInput/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/intlTelInput/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/nicepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/nicepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/nicepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/docs/nicepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/docs1/result.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ER_Model/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/ER_Model/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +35,21 @@
         </map>
       </branch-storage>
     </excluded-from-favorite>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ER_Model" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Loki-Zhu&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Loki-Zhu/ER_Model&quot;,
+    &quot;accountId&quot;: &quot;ce5aeec1-061a-495a-9087-4573a51e078b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -62,21 +58,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.predict.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "last_opened_file_path": "/Users/loki/PycharmProjects/PythonProject5/ER_Model/docs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.predict.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/loki/PycharmProjects/PythonProject5/ER_Model/docs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ER_Model/docs" />
@@ -120,6 +118,8 @@
       <workItem from="1748624863861" duration="1842000" />
       <workItem from="1748956333284" duration="44467000" />
       <workItem from="1749557688973" duration="19786000" />
+      <workItem from="1749735370948" duration="33000" />
+      <workItem from="1749901499349" duration="3007000" />
     </task>
     <servers />
   </component>
