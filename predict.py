@@ -78,6 +78,29 @@ else:
     lstm_df_model = lstm_df_model.drop(['Date'], axis=1)
 lstm_df = lstm_df.drop(['Date'], axis=1)
 
+def compute_macd(df, price_col='ER', fast=6, slow=13, signal=5):
+    exp1 = df[price_col].ewm(span=fast, adjust=False).mean()
+    exp2 = df[price_col].ewm(span=slow, adjust=False).mean()
+    macd = exp1 - exp2
+    signal_line = macd.ewm(span=signal, adjust=False).mean()
+    df['MACD'] = macd
+    df['Signal'] = signal_line
+    return df
+
+# 标记金叉与死叉
+def mark_cross(df):
+    df['MACD_Signal'] = 0
+    condition = (df['MACD'].shift(1) < df['Signal'].shift(1)) & (df['MACD'] >= df['Signal'])
+    df.loc[condition, 'MACD_Signal'] = 1  # 金叉
+    condition = (df['MACD'].shift(1) > df['Signal'].shift(1)) & (df['MACD'] <= df['Signal'])
+    df.loc[condition, 'MACD_Signal'] = 0  # 死叉
+    df['MACD_Signal'] = df['MACD_Signal'].ffill().fillna(0).astype(int)
+    return df
+
+trend_df = lstm_df.copy()
+trend_df = compute_macd(trend_df)
+trend_df = mark_cross(trend_df)
+
 # Split data into training and testing sets using 80/20 ratio
 split_idx = int(len(lstm_df_model) * 0.91)
 train_df = lstm_df_model.iloc[:split_idx]
@@ -174,15 +197,14 @@ output = pd.DataFrame({
 
 before_value = df_all['ER'].iloc[-1]
 diff = y_pred[0][0] - before_value
-if diff < 0:
+
+if trend_df.iloc[-1]['MACD_Signal'] == 0:
     trend_sign = '⬇️ Down'
     trend_cn = '⬇️ 下跌'
-elif diff > 0:
+else:
     trend_sign = '⬆️ Up'
     trend_cn = '⬆️ 上涨'
-else:
-    trend_sign = 'Hold'
-    trend_cn = '持平'
+
 pred_date = df_all['Date'].iloc[-1] + timedelta(days=1)
 output = pd.DataFrame({
     'date': pred_date,
