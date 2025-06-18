@@ -184,7 +184,7 @@ df_pred = df_pred.reset_index()
 last_date = df_pred['Date'].max()
 
 # 生成未来工作日（不包括周六、周日）
-#future_dates = pd.bdate_range(start=last_date + pd.Timedelta(days=1), periods=len(future_preds))
+#future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=len(future_preds))
 
 # 创建预测DataFrame
 df_future = pd.DataFrame({

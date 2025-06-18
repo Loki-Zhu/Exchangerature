@@ -5,6 +5,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import pandas as pd
 import numpy as np
+from pandas.tseries.offsets import BDay
 import requests
 from requests.auth import HTTPBasicAuth
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -187,18 +188,10 @@ y_pred_scaled = model.predict(X_latest)
 y_pred = target_scaler.inverse_transform(y_pred_scaled)
 print(f"Predicted next exchange rate: {y_pred[0][0]:.4f}")
 
-# 生成未来工作日（不包括周六、周日）
-#future_dates = pd.date_range(start=last_date + pd.Timedelta(days=1), periods=len(future_preds))
-pred_date = df_all['Date'].iloc[-1] + timedelta(days=1)
-output = pd.DataFrame({
-    'date': pred_date,
-    'predicted_rate': [round(y_pred[0][0], 4)]
-})
-
 before_value = df_all['ER'].iloc[-1]
 diff = y_pred[0][0] - before_value
 
-if trend_df.iloc[-1]['MACD_Signal'] == 0:
+if trend_df['MACD_Signal'].iloc[-1] == 0:
     trend_sign = '⬇️ Down'
     trend_cn = '⬇️ 下跌'
 else:
